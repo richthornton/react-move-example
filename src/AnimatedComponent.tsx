@@ -1,7 +1,6 @@
 import * as React from 'react';
-// import { Animate } from 'react-move';
-var Animate = require('react-move').Animate;
-
+import { Animate } from 'react-move';
+    
 function makeItems() {
   return [0, 1, 2, 3, 4].map((d) => {
     const colorNum = Math.random();
@@ -14,7 +13,7 @@ function makeItems() {
   });
 }
 
-export default class MyAnimatedComponent extends React.Component<any, any> {
+export class AnimatedComponent extends React.Component<any, any> {
   constructor() {
     super();
     this.state = {

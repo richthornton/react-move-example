@@ -1,6 +1,6 @@
 import * as React from 'react';
-// import { Transition } from 'react-move';
-var Transition = require('react-move').Transition;
+import { Transition } from 'react-move';
+// var Transition = require('react-move').Transition;
 
 let include: boolean;
 function makeTransitionItems() {

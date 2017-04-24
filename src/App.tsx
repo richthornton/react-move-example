@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AnimatedComponent from './AnimatedComponent';
+import {AnimatedComponent} from './AnimatedComponent';
 import TransitionedComponent from './TransitionedComponent';
 import './App.css';
 
