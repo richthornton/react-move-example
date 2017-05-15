@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Transition } from 'react-move';
-// var Transition = require('react-move').Transition;
 
 let include: boolean;
 function makeTransitionItems() {
@@ -51,29 +50,34 @@ export default class TransitionedComponent extends React.Component<any, any> {
             opacity: 0,
             color: 'red',
           })}
-          stagger={100}
+        stagger={100}
           staggerGroups // staggers items relative to their 'entering', 'updating', or 'leaving' group
         >
           {(data: any) => (
             <div style={{ height: `${20 * 10  }px` }}>
-              {data.map((d: any) => (
-                <div
-                  key={d.key}
-                  style={{
-                    fontWeight: 'bold',
-                    position: 'absolute',
-                    transform: `translate(${100 * d.state.translate}px, ${20 * d.key}px)`,
-                    color: d.state.color,
-                    opacity: d.state.opacity,
-                  }}
-                >
-                  {d.key} - {Math.round(d.progress * 100)}
-                </div>
-              ))}
+              {data.map(this.renderElement)}
             </div>
           )}
         </Transition>
       </div>
     );
+  }
+
+  private renderElement(d: any) {
+    console.log(d);
+    return (
+      <div
+        key={d.key}
+        style={{
+          fontWeight: 'bold',
+          position: 'absolute',
+          transform: `translate(${100 * d.state.translate}px, ${20 * d.key}px)`,
+          color: d.state.color,
+          opacity: d.state.opacity,
+        }}
+      >
+        {d.key} - {Math.round(d.progress * 100)}
+      </div>
+    )
   }
 }
