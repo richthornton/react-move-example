@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Transition } from 'react-move';
 
-let include: boolean;
 function makeTransitionItems() {
-  include = !include;
   return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((d: number) => ({
       value: d,
     })).filter((d: any, i: number) => Math.random() * 10 > i);
@@ -38,17 +36,14 @@ export default class TransitionedComponent extends React.Component<any, any> {
           update={(d: any) => ({
             translate: 1,
             opacity: 1,
-            color: 'grey',
           })}
           enter={(d: any) => ({
             translate: 0,
             opacity: 0,
-            color: 'blue',
           })}
           leave={(d: any) => ({
             translate: 2,
             opacity: 0,
-            color: 'red',
           })}
         stagger={100}
           staggerGroups // staggers items relative to their 'entering', 'updating', or 'leaving' group
@@ -64,15 +59,11 @@ export default class TransitionedComponent extends React.Component<any, any> {
   }
 
   private renderElement(d: any) {
-    console.log(d);
     return (
       <div
         key={d.key}
         style={{
-          fontWeight: 'bold',
-          position: 'absolute',
           transform: `translate(${100 * d.state.translate}px, ${20 * d.key}px)`,
-          color: d.state.color,
           opacity: d.state.opacity,
         }}
       >
